@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 public class Operator{
-    Scanner input = new Scanner(System.in, "utf-8");
+    Scanner input = new Scanner(System.in);
     String[][] bookInformation = {{"c언어","홍길동"}, 
                                   {"자바언어","임꺽정"},
                                   {"파이썬","김개똥"},
                                   {"자료구조","김강사"},
                                   {"네트워크","최교수"}};
-    String[][] studentInformation = {{"김철호","S11","컴퓨터공학"}, 
+    String[][] studentInformation = {{"test","T11","컴퓨터공학"},
+                                     {"김철호","S11","컴퓨터공학"}, 
                                      {"이철호","S12","컴퓨터공학"}, 
                                      {"강철호","S13","전자공학"}, 
                                      {"최철호","S14","일어일본"}, 
@@ -50,15 +51,13 @@ public class Operator{
             System.out.print("명령어 : ");
             menu = input.nextLine();
             if(menu.equals("S")){
-                //input.close();
                 break;
             }
             else if(menu.equals("P")){
-                //input.close();
-                // 교수이름 입력 메소드 실행
+                break;
             }
             else if(menu.equals("Q")){
-                //input.close();
+                System.out.println("프로그램을 종료합니다.");
                 break;
             }
             else{
@@ -68,41 +67,84 @@ public class Operator{
         if(menu.equals("S")){
             searchStudent();
         }
-
+        else if(menu.equals("P")){
+            searchFaculty();
+        }
     }
     
     void searchStudent(){
-        String name;
         while(true){
             System.out.print("학생 이름 : ");
-            name = input.nextLine();
-            System.out.println(name);
+            String name = input.nextLine();
             if (checkStudent(name) == 1){
                 break;
             }
-            
+            else{
+                System.out.println("존재하지 않은 학생입니다. 다시 입력하세요.");
+            }
         }
+        searchBook();
     }
 
     int checkStudent(String name){
         int result = 0;
         for (int i=0; i<students.length; i++){
-            System.out.println(students[i].name);
             if (students[i].name.equals(name)){
                 result = 1;
                 break;
             }
         }
         return result;
-        
     }
 
     void searchFaculty(){
-        // System.out.println(menu);
+        while(true){
+            System.out.print("교수 이름 : ");
+            String name = input.nextLine();
+            if (checkFaculty(name) == 1){
+                break;
+            }
+            else{
+                System.out.println("존재하지 않은 교수입니다. 다시 입력하세요.");
+            }
+        }
+        searchBook();
+    }
+
+    int checkFaculty(String name){
+        int result = 0;
+        for (int i=0; i<students.length; i++){
+            if (students[i].name.equals(name)){
+                result = 1;
+                break;
+            }
+        }
+        return result;
     }
 
     void searchBook(){
-        // System.out.println(menu);
+        while(true){
+            System.out.print("책 제목 : ");
+            String title = input.nextLine();
+            if (checkBook(title) == 1){
+                break;
+            }
+            else{
+                System.out.println("존재하지 않은 책입니다. 다시 입력하세요.");
+            }
+        }
+    }
+
+    int checkBook(String title){
+        int result = 0;
+        for (int i=0; i<students.length; i++){
+            if (students[i].name.equals(title)){
+                result = 1;
+                break;
+            }
+        }
+        return result;
+    
     }
 
     public static void main(String[] args) {
