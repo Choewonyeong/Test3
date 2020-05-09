@@ -6,7 +6,7 @@ public class Student extends Person{
     String[] books = new String[3];
 
 
-    // 객체에 성명, 아이디, 과목 정보 재구성
+    // 학생 정보 객체 생성자
     public Student(String name, String id, String major){
         super.student = new Student(name, id, major);
         this.name = name;

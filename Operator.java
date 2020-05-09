@@ -32,11 +32,11 @@ public class Operator{
                                      {"김정동","F12","컴퓨터공학"},
                                      {"이진성","F13","전자공학"}};
     // 책 정보 배열 객체 초기화
-    Book[] books = new Book[5];
+    Book[] books = new Book[bookInformation.length];
     // 학생 정보 배열 객체 초기화
-    Student[] students = new Student[5];
+    Student[] students = new Student[studentInformation.length];
     // 교수 정보 배열 객체 초기화
-    Faculty[] faculties = new Faculty[3];
+    Faculty[] faculties = new Faculty[facultyInformation.length];
     // 도서관 관리자 객체 초기화
     LibraryStaff libStaff = new LibraryStaff();
 
