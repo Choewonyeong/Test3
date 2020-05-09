@@ -1,5 +1,5 @@
 public class Student extends Person{
-    String name, id, major;
+    public String name, id, major;
     String[] books = new String[3];
 
 
@@ -8,6 +8,10 @@ public class Student extends Person{
         this.name = name;
         this.id = id;
         this.major = major;
+    }
+    
+    public String getUserName(){
+        return this.name;
     }
 
     void study(){

@@ -1,5 +1,7 @@
 public class Person {
-    String name;
+    Student student;
+    Faculty faculty;
+    String name, id, major;
 
     void borrowBook(Book book){
         

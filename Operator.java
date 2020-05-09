@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Operator{
     Scanner input = new Scanner(System.in);
-    Object user, book;
+    Student student;
+    Faculty faculty;
+    Book book;
 
     String[][] bookInformation = {{"book","exam"},
                                   {"c언어","홍길동"},
@@ -70,12 +72,12 @@ public class Operator{
         if(menu.equals("S")){
             searchStudent();
             searchBook();
-            libStaff.callMethod(user, book);
+            libStaff.callStudent(student, book);
         }
         else if(menu.equals("P")){
             searchFaculty();
             searchBook();
-            libStaff.callMethod(user, book);
+            libStaff.callFaculty(faculty, book);
         }
     }
     
@@ -97,7 +99,7 @@ public class Operator{
         for (int i=0; i<students.length; i++){
             if (students[i].name.equals(name)){
                 result = 1;
-                user = students[i];
+                student = students[i];
                 break;
             }
         }
@@ -122,7 +124,7 @@ public class Operator{
         for (int i=0; i<students.length; i++){
             if (faculties[i].name.equals(name)){
                 result = 1;
-                user = faculties[i];
+                faculty = faculties[i];
                 break;
             }
         }
@@ -148,6 +150,7 @@ public class Operator{
             if (books[i].bookTitle.equals(title)){
                 result = 1;
                 book = books[i];
+                System.out.println(book.getClass().getName());
                 break;
             }
         }
