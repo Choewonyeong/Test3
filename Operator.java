@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Operator{
     Scanner input = new Scanner(System.in);
+    String name, title;
+
     String[][] bookInformation = {{"c언어","홍길동"}, 
                                   {"자바언어","임꺽정"},
                                   {"파이썬","김개똥"},
@@ -75,7 +77,7 @@ public class Operator{
     void searchStudent(){
         while(true){
             System.out.print("학생 이름 : ");
-            String name = input.nextLine();
+            name = input.nextLine();
             if (checkStudent(name) == 1){
                 break;
             }
@@ -100,7 +102,7 @@ public class Operator{
     void searchFaculty(){
         while(true){
             System.out.print("교수 이름 : ");
-            String name = input.nextLine();
+            name = input.nextLine();
             if (checkFaculty(name) == 1){
                 break;
             }
@@ -114,7 +116,7 @@ public class Operator{
     int checkFaculty(String name){
         int result = 0;
         for (int i=0; i<students.length; i++){
-            if (students[i].name.equals(name)){
+            if (faculties[i].name.equals(name)){
                 result = 1;
                 break;
             }
@@ -138,7 +140,7 @@ public class Operator{
     int checkBook(String title){
         int result = 0;
         for (int i=0; i<students.length; i++){
-            if (students[i].name.equals(title)){
+            if (books[i].bookTitle.equals(title)){
                 result = 1;
                 break;
             }
