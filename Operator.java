@@ -17,6 +17,7 @@ public class Operator{
     Book[] books = new Book[5];
     Student[] students = new Student[5];
     Faculty[] faculties = new Faculty[3];
+
     void welcome(){
         System.out.println("도서관리 프로그램을 이용해주셔서 감사합니다.");
     }
@@ -27,7 +28,7 @@ public class Operator{
         }
     }
 
-    public String setMenu(){
+    void setMenu(){
         LibraryStaff libStaff = new LibraryStaff();
         Scanner input = new Scanner(System.in);
         String menu = "";
@@ -42,15 +43,15 @@ public class Operator{
             menu = input.next();
             if(menu.equals("S")){
                 input.close();
-                students[0].getStudentInformation();
+                // 학생이름 입력 메소드 실행
             }
             else if(menu.equals("P")){
                 input.close();
-                return menu;
+                // 교수이름 입력 메소드 실행
             }
             else if(menu.equals("Q")){
                 input.close();
-                return menu;
+                break;
             }
             else{
                 System.out.println("\n메뉴를 다시 입력하세요.\n");
