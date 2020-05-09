@@ -17,19 +17,27 @@ public class Operator{
     Book[] books = new Book[5];
     Student[] students = new Student[5];
     Faculty[] faculties = new Faculty[3];
+    LibraryStaff libStaff = new LibraryStaff();
 
     void welcome(){
         System.out.println("도서관리 프로그램을 이용해주셔서 감사합니다.");
     }
 
-    void setBooks(Book[] books){
-        int len = bookInformation.length;
-        for (int i=0; i<len; i++){
+    void setObjects(){
+        for (int i = 0; i < books.length; i++){
+            if (i < 3){
+                books[i] = new Book(bookInformation[i][0], bookInformation[i][1]);
+                students[i] = new Student(studentInformation[i][0], studentInformation[i][1], studentInformation[i][2]);
+                faculties[i] = new Faculty(facultyInformation[i][0], facultyInformation[i][1], facultyInformation[i][2]);
+            }
+            else{
+                books[i] = new Book(bookInformation[i][0], bookInformation[i][1]);
+                students[i] = new Student(studentInformation[i][0], studentInformation[i][1], studentInformation[i][2]);
+                }
         }
     }
 
     void setMenu(){
-        LibraryStaff libStaff = new LibraryStaff();
         Scanner input = new Scanner(System.in);
         String menu = "";
         while(true){
@@ -61,6 +69,10 @@ public class Operator{
     
     public static void main(String[] args) {
         Operator controller = new Operator();
+        controller.setObjects();
+        for (int i=0; i<controller.books.length; i++){
+            System.out.println(controller.books[i].bookTitle);
+        }
         controller.welcome();
         controller.setMenu();
     }
