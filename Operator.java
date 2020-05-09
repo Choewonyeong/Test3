@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Operator{
     Scanner input = new Scanner(System.in);
-    String name, title;
+    Object user, book;
 
     String[][] bookInformation = {{"book","exam"},
                                   {"c언어","홍길동"},
@@ -70,19 +70,19 @@ public class Operator{
         if(menu.equals("S")){
             searchStudent();
             searchBook();
-            libStaff.callMethod(name, title);
+            libStaff.callMethod(user, book);
         }
         else if(menu.equals("P")){
             searchFaculty();
             searchBook();
-            libStaff.callMethod(name, title);
+            libStaff.callMethod(user, book);
         }
     }
     
     void searchStudent(){
         while(true){
             System.out.print("학생 이름 : ");
-            name = input.nextLine();
+            String name = input.nextLine();
             if (checkStudent(name) == 1){
                 break;
             }
@@ -97,6 +97,7 @@ public class Operator{
         for (int i=0; i<students.length; i++){
             if (students[i].name.equals(name)){
                 result = 1;
+                user = students[i];
                 break;
             }
         }
@@ -106,7 +107,7 @@ public class Operator{
     void searchFaculty(){
         while(true){
             System.out.print("교수 이름 : ");
-            name = input.nextLine();
+            String name = input.nextLine();
             if (checkFaculty(name) == 1){
                 break;
             }
@@ -121,6 +122,7 @@ public class Operator{
         for (int i=0; i<students.length; i++){
             if (faculties[i].name.equals(name)){
                 result = 1;
+                user = faculties[i];
                 break;
             }
         }
@@ -130,7 +132,7 @@ public class Operator{
     void searchBook(){
         while(true){
             System.out.print("책 제목 : ");
-            title = input.nextLine();
+            String title = input.nextLine();
             if (checkBook(title) == 1){
                 break;
             }
@@ -145,6 +147,7 @@ public class Operator{
         for (int i=0; i<students.length; i++){
             if (books[i].bookTitle.equals(title)){
                 result = 1;
+                book = books[i];
                 break;
             }
         }

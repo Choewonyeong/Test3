@@ -1,5 +1,6 @@
 public class Student extends Person{
     String name, id, major;
+    String[] books = new String[3];
 
 
     public Student(String name, String id, String major){
