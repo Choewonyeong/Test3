@@ -4,12 +4,13 @@ public class Operator{
     Scanner input = new Scanner(System.in);
     String name, title;
 
-    String[][] bookInformation = {{"c언어","홍길동"}, 
+    String[][] bookInformation = {{"book","exam"},
+                                  {"c언어","홍길동"},
                                   {"자바언어","임꺽정"},
                                   {"파이썬","김개똥"},
                                   {"자료구조","김강사"},
                                   {"네트워크","최교수"}};
-    String[][] studentInformation = {{"test","T11","컴퓨터공학"},
+    String[][] studentInformation = {{"user","T11","컴퓨터공학"},
                                      {"김철호","S11","컴퓨터공학"}, 
                                      {"이철호","S12","컴퓨터공학"}, 
                                      {"강철호","S13","전자공학"}, 
@@ -68,9 +69,13 @@ public class Operator{
         }
         if(menu.equals("S")){
             searchStudent();
+            searchBook();
+            libStaff.callMethod(name, title);
         }
         else if(menu.equals("P")){
             searchFaculty();
+            searchBook();
+            libStaff.callMethod(name, title);
         }
     }
     
@@ -85,7 +90,6 @@ public class Operator{
                 System.out.println("존재하지 않은 학생입니다. 다시 입력하세요.");
             }
         }
-        searchBook();
     }
 
     int checkStudent(String name){
@@ -110,7 +114,6 @@ public class Operator{
                 System.out.println("존재하지 않은 교수입니다. 다시 입력하세요.");
             }
         }
-        searchBook();
     }
 
     int checkFaculty(String name){
@@ -127,7 +130,7 @@ public class Operator{
     void searchBook(){
         while(true){
             System.out.print("책 제목 : ");
-            String title = input.nextLine();
+            title = input.nextLine();
             if (checkBook(title) == 1){
                 break;
             }
